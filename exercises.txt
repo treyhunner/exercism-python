@@ -1,0 +1,61 @@
+Hello World
+Leap
+Clock
+Pangram
+Rna Transcription
+Hamming
+Word Count
+Gigasecond
+Bob
+Run Length Encoding
+Meetup
+Difference Of Squares
+Anagram
+Allergies
+Series
+Robot Simulator
+Sieve
+Atbash Cipher
+Sum Of Multiples
+Acronym
+Say
+Largest Series Product
+Kindergarten Garden
+Grade School
+Roman Numerals
+Space Age
+Grains
+Luhn
+Etl
+Prime Factors
+Pig Latin
+Simple Cipher
+Scrabble Score
+Crypto Square
+Sublist
+Pythagorean Triplet
+Circular Buffer
+Robot Name
+Matrix
+Rail Fence Cipher
+Nth Prime
+Saddle Points
+Beer Song
+Perfect Numbers
+Secret Handshake
+Twelve Days
+Binary
+Palindrome Products
+Bracket Push
+Hexadecimal
+Minesweeper
+Queen Attack
+Wordy
+Phone Number
+Ocr Numbers
+House
+Triangle
+Poker
+Zebra Puzzle
+Rectangles
+Binary Search
