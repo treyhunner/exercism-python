@@ -1,5 +1,8 @@
-from functools import partial, reduce
-import operator
+def product(numbers):
+    total = 1
+    for n in numbers:
+        total *= n
+    return total
 
 
 def window(sequence, length):
@@ -10,14 +13,11 @@ def window(sequence, length):
     )
 
 
-product = partial(reduce, operator.mul)
-
-
 def largest_product(series, substring_length):
     if substring_length < 0:
         raise ValueError("Substring length must be non-negative.")
     digits = [int(d) for d in series]
     return max(
-        product(group) if group else 1
+        product(group)
         for group in window(digits, substring_length)
     )

@@ -4,8 +4,6 @@ from collections import Iterable
 def flatten_gen(iterable):
     """Yield all non-None, items from all iterables in order."""
     for item in iterable:
-        if item is None:
-            continue  # Skip None values... why?  Who knows!
         # don't flatten strings to avoid infinite recursion
         if isinstance(item, Iterable) and not isinstance(item, (str, bytes)):
             yield from flatten_gen(item)
@@ -14,4 +12,8 @@ def flatten_gen(iterable):
 
 
 def flatten(iterable):
-    return list(flatten_gen(iterable))
+    return [
+        item
+        for item in flatten_gen(iterable)
+        if item is not None  # Skip None values... why?  Who knows!
+    ]
