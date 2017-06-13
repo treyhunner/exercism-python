@@ -5,7 +5,7 @@ from math import floor, sqrt
 def is_prime(candidate):
     return all(
         candidate % n != 0
-        for n in range(2, ceil(sqrt(candidate))
+        for n in range(2, floor(sqrt(candidate)+1))
     ) and 2 <= candidate
 
 
