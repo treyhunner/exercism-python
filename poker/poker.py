@@ -54,7 +54,7 @@ class Card(namedtuple('BaseCard', 'rank suit')):
         return self.rank < other.rank
 
 
-class Score(namedtuple('BaseScore', 'category sub_order')):
+class Score(namedtuple('BaseScore', 'category cards')):
     """Score of a poker hand."""
     def __new__(cls, category, cards):
         cards = list(cards)
@@ -120,8 +120,7 @@ def get_straight_flush_score(cards):
     flush_score = get_flush_score(cards)
     straight_score = get_straight_score(cards)
     if flush_score and straight_score:
-        _, cards = straight_score
-        return Score(Categories.straight_flush, cards)
+        return Score(Categories.straight_flush, straight_score.cards)
 
 
 def score_hand(hand):
@@ -133,7 +132,11 @@ def score_hand(hand):
         get_flush_score(cards),
         get_straight_flush_score(cards),
     ]
-    return max(filter(bool, scores))
+    return max(
+        score
+        for score in scores
+        if score is not None
+    )
 
 
 def poker(hands):

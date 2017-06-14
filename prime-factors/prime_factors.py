@@ -1,10 +1,8 @@
-from itertools import count
-import math
+from math import floor, sqrt
 
 
 def prime_factors(number):
-    limit = math.ceil(math.sqrt(number))+1
-    for n in range(2, limit):
+    for n in range(2, floor(sqrt(number) + 1)):
         if number % n == 0:
             return [n, *prime_factors(number//n)]
     return [number] if number != 1 else []
