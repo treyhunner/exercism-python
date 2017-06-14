@@ -2,7 +2,7 @@ from collections import Iterable
 
 
 def flatten_gen(iterable):
-    """Yield all non-None, items from all iterables in order."""
+    """Yield all items from all iterables in order."""
     for item in iterable:
         # don't flatten strings to avoid infinite recursion
         if isinstance(item, Iterable) and not isinstance(item, (str, bytes)):
