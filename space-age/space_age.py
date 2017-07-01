@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 SECONDS_IN_EARTH_YEAR = 31557600
 ORBITAL_PERIODS = {
     'earth': 1,
@@ -11,7 +14,7 @@ ORBITAL_PERIODS = {
 }
 
 
-def age_on_planet(seconds_alive, planet):
+def age_on_planet(seconds_alive: float, planet: str) -> float:
     """Return age on a given planet."""
     annual_seconds = SECONDS_IN_EARTH_YEAR * ORBITAL_PERIODS[planet]
     return round(seconds_alive / annual_seconds, 2)
@@ -25,9 +28,9 @@ class SpaceAge:
     https://www.youtube.com/watch?v=o9pEzgHorH0
     """
 
-    def __init__(self, seconds):
+    def __init__(self, seconds: float) -> None:
         self.seconds = seconds
 
-    def __getattr__(self, attr):
-        if attr.startswith('on_'):
-            return lambda: age_on_planet(self.seconds, attr[3:])
+    def __getattr__(self, planet: str) -> Callable:
+        if planet.startswith('on_'):
+            return lambda: age_on_planet(self.seconds, planet[3:])
