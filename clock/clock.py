@@ -3,9 +3,9 @@ from datetime import date, datetime, time, timedelta
 
 
 class Clock(object):
-    def __init__(self, h, m):
-        self.dt = datetime.combine(date.today(), time(0, 0)) + \
-                                   timedelta(hours=h, minutes=m)
+    def __init__(self, hours, minutes):
+        start = datetime.combine(date.today(), time(0, 0))
+        self.dt = start + timedelta(hours=hours, minutes=minutes)
 
     def add(self, m):
         self.dt += timedelta(minutes=m)
