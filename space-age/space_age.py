@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Optional
 
 
 SECONDS_IN_EARTH_YEAR = 31557600
@@ -31,6 +31,7 @@ class SpaceAge:
     def __init__(self, seconds: float) -> None:
         self.seconds = seconds
 
-    def __getattr__(self, planet: str) -> Callable:
+    def __getattr__(self, planet: str) -> Optional[Callable]:
         if planet.startswith('on_'):
             return lambda: age_on_planet(self.seconds, planet[3:])
+        return None
