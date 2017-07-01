@@ -15,7 +15,7 @@ VALUES = [
 ]
 
 
-def numeral(integer):
+def numeral(integer: int) -> str:
     numeral = ""
     for value, symbols in VALUES:
         times, integer = divmod(integer, value)

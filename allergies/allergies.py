@@ -1,4 +1,5 @@
 from collections import UserList
+from typing import List
 
 
 class Allergies(UserList):
@@ -16,7 +17,7 @@ class Allergies(UserList):
         'cats',
     ]
 
-    def __init__(self, number):
+    def __init__(self, number: int) -> None:
         self.data = [
             item
             for i, item in enumerate(self.items)
@@ -24,10 +25,10 @@ class Allergies(UserList):
         ]
 
     @property
-    def lst(self):
+    def lst(self) -> List[str]:
         """Using `lst` makes for a slightly silly API in Python."""
         return list(self)
 
-    def is_allergic_to(self, item):
+    def is_allergic_to(self, item: str) -> bool:
         """This method isn't really needed when there's containment."""
         return item in self

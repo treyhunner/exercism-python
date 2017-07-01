@@ -1,7 +1,8 @@
 from math import ceil, sqrt
+from typing import List
 
 
-def sieve(limit):
+def sieve(limit: int) -> List[int]:
     # Start with 0 & 1 non-prime and everything else assumed prime
     primality = [False, False] + [True] * (limit - 1)
     for n in range(2, ceil(sqrt(limit))):

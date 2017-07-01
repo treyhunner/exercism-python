@@ -1,4 +1,7 @@
-def detect_anagrams(word, possible):
+from typing import List
+
+
+def detect_anagrams(word: str, possible: List[str]) -> List[str]:
     return [
         candidate
         for candidate in possible
@@ -6,7 +9,7 @@ def detect_anagrams(word, possible):
     ]
 
 
-def is_anagram(word1, word2):
+def is_anagram(word1: str, word2: str) -> bool:
     word1, word2 = word1.lower(), word2.lower()
     has_same_letters = sorted(word1) == sorted(word2)
     is_same_word = word1 != word2
