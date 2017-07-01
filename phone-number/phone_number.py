@@ -16,7 +16,7 @@ PHONE_RE = re.compile(r"""
 
 
 class Phone:
-    def __init__(self, phone_number):
+    def __init__(self, phone_number: str) -> None:
         match = PHONE_RE.search(phone_number)
         self.number = (
             "".join(match.groups())
@@ -24,10 +24,10 @@ class Phone:
             else "0000000000"
         )
 
-    def area_code(self):
+    def area_code(self) -> str:
         return self.number[:3]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return PHONE_RE.sub(r"(\1) \2-\3", self.number)
 
     pretty = __str__

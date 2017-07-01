@@ -1,4 +1,7 @@
-def saddle_points(matrix):
+from typing import Sequence, Set, Tuple
+
+
+def saddle_points(matrix: Sequence[Sequence[int]]) -> Set[Tuple[int, int]]:
     if not all(len(row) == len(matrix[0]) for row in matrix):
         raise ValueError("Rows have different lengths.")
     rows, columns = matrix, list(zip(*matrix))
