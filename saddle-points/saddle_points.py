@@ -9,6 +9,5 @@ def saddle_points(matrix: Sequence[Sequence[int]]) -> Set[Tuple[int, int]]:
         (x, y)
         for x, row in enumerate(matrix)
         for y, value in enumerate(row)
-        if value == max(rows[x])
-        and value == min(columns[y])
+        if max(rows[x]) == min(columns[y])
     }
